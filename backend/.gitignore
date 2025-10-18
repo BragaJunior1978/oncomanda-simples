@@ -1,0 +1,31 @@
+# ---------------------------------------------
+# 1. ARQUIVOS DE CONFIGURAÇÃO PRIVADA
+# ---------------------------------------------
+# Chaves de ambiente
+.env
+# Arquivos de log
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# ---------------------------------------------
+# 2. DEPENDÊNCIAS E PASTAS DE BUILD
+# ---------------------------------------------
+# Pasta principal de dependências (se instalada na raiz)
+node_modules
+
+# Pastas de dependências em subdiretórios
+/backend/node_modules
+/frontend/node_modules
+
+# Pastas de build do Frontend (Vite)
+/frontend/dist
+
+# ---------------------------------------------
+# 3. ARQUIVOS DO PRISMA E BANCO DE DADOS
+# ---------------------------------------------
+# Arquivos gerados pelo Prisma
+/generated/prisma
+# Arquivos de banco de dados local (se usando SQLite)
+*.db
+*.sqlite
