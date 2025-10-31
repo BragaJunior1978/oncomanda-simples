@@ -24,6 +24,7 @@ cd backend
 Instale as dependências:
 
 npm install
+
 Configurar Variáveis de Ambiente: Crie um arquivo chamado .env na pasta backend com o conteúdo mínimo de configuração do banco de dados (SQLite):
 
 # Exemplo de conteúdo para o arquivo .env
