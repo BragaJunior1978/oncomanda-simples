@@ -15,51 +15,63 @@ Para executar o projeto, você precisa ter instalado:
 * npm ou Yarn
 * Um Banco de Dados suportado pelo Prisma (configurado no seu `schema.prisma`, geralmente PostgreSQL ou SQLite).
 
-### 1. Instalação e Configuração do Backend
-
+1. Instalação e Configuração do Backend
 Siga os passos para configurar o servidor e o banco de dados:
 
-1.  **Navegue para a pasta `backend`:**
-    ```bash
-    cd backend
-    ```
-2.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
-3.  **Configure e aplique o banco de dados (Prisma Migrate):**
-    *Certifique-se de que a variável de ambiente DATABASE_URL no seu `.env` esteja correta.*
-    ```bash
-    npx prisma migrate dev
-    ```
-4.  **Inicie o Servidor:**
-    ```bash
-    npm start
-    ```
-    *O servidor iniciará na porta `3000`.*
+Navegue para a pasta backend:
 
-### 2. Instalação e Execução do Frontend
+Bash
 
+cd backend
+Instale as dependências:
+
+Bash
+
+npm install
+Configurar Variáveis de Ambiente: Crie um arquivo chamado .env na pasta backend com o conteúdo mínimo de configuração do banco de dados (SQLite):
+
+Snippet de código
+
+# Exemplo de conteúdo para o arquivo .env
+DATABASE_URL="file:./dev.db"
+JWT_SECRET="sua_chave_secreta"
+PORT=3000
+Aplicar o Schema do Banco de Dados (Prisma Migrate): Este comando criará o arquivo de banco de dados e as tabelas:
+
+Bash
+
+npx prisma migrate dev
+Rodar o Seed (Opcional, mas Recomendado): Se você tiver dados iniciais (usuários, mesas, produtos) para o sistema funcionar:
+
+Bash
+
+npx prisma db seed 
+Inicie o Servidor:
+
+Bash
+
+npm start
+O servidor iniciará na porta 3000.
+
+2. Instalação e Execução do Frontend
 Com o servidor rodando, inicie o aplicativo React:
 
-1.  **Abra um novo terminal e navegue para a pasta `frontend`:**
-    ```bash
-    cd ../frontend
-    ```
-2.  **Instale as dependências:**
-    ```bash
-    npm install
-    ```
-3.  **Inicie o Aplicativo React:**
-    ```bash
-    npm run dev
-    ```
-    *O aplicativo estará acessível em `http://localhost:5173`.*
+Abra um novo terminal e navegue para a pasta frontend:
 
----
+Bash
 
-## 🔑 Acessos e Papéis
+cd ../frontend
+Instale as dependências:
 
+Bash
+
+npm install
+Inicie o Aplicativo React:
+
+Bash
+
+npm run dev
+O aplicativo estará acessível em http://localhost:5173.
 O sistema utiliza os seguintes papéis para acesso:
 * **ADMIN:** Acesso total (Mesas, Pedidos, Cozinha, Relatórios, Criação de Usuário).
 * **GARCOM:** Acesso operacional (Mesas, Pedidos, Cozinha).
