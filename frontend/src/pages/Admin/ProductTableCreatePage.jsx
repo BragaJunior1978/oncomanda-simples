@@ -1,7 +1,7 @@
 // frontend/src/pages/Admin/ProductTableCreatePage.jsx
 
 import React, { useState, useEffect, useCallback } from 'react'; 
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, Link } from 'react-router-dom'; // Adicione 'Link' aqui se for usá-lo, mas vamos usar 'navigate'
 import { useAuth } from '../../context/AuthContext'; 
 import './AdminStyles.css'; // Assume que este arquivo de estilo existe
 
@@ -215,18 +215,28 @@ const ProductTableCreatePage = () => {
                     </form>
                 </div>
 
-                {/* CARD 3: CADASTRO DE USUÁRIOS (Link) */}
+                {/* CARD 3: CADASTRO DE USUÁRIOS (Link para criação) */}
                 <div className="admin-form-card link-card" style={cardStyle}>
                     <h2 className="card-title" style={cardTitleStyle}>3. Cadastrar Usuários</h2>
-                    <p style={{color: '#ccc', marginBottom: '15px'}}>Gerencie o acesso de Garçons e Administradores.</p>
+                    <p style={{color: '#ccc', marginBottom: '15px'}}>Cadastre novos Garçons e Administradores.</p>
                     <button onClick={() => navigate('/admin/users/create')} className="submit-button user-button" style={{...submitButtonStyle, backgroundColor: '#ffc107', color: '#333'}}>
                         IR PARA CADASTRO DE USUÁRIOS
                     </button>
                 </div>
                 
-                {/* NOVO CARD 4: RELATÓRIOS SIMPLES (Link) */}
+                {/* NOVO CARD 4: GERENCIAMENTO DE USUÁRIOS (Link para listagem, edição, delete) */}
                 <div className="admin-form-card link-card" style={cardStyle}>
-                    <h2 className="card-title" style={cardTitleStyle}>4. Relatórios de Vendas</h2>
+                    <h2 className="card-title" style={cardTitleStyle}>4. Gerenciamento de Usuários</h2>
+                    <p style={{color: '#ccc', marginBottom: '15px'}}>Visualize, edite e remova usuários existentes.</p>
+                    <button onClick={() => navigate('/admin/users')} className="submit-button user-button" style={{...submitButtonStyle, backgroundColor: '#4a3d10', color: 'white'}}>
+                        LISTAR E GERENCIAR USUÁRIOS
+                    </button>
+                </div>
+
+
+                {/* CARD 5: RELATÓRIOS SIMPLES (Link) */}
+                <div className="admin-form-card link-card" style={cardStyle}>
+                    <h2 className="card-title" style={cardTitleStyle}>5. Relatórios de Vendas</h2>
                     <p style={{color: '#ccc', marginBottom: '15px'}}>Visualize o histórico de comandas fechadas.</p>
                     <button onClick={() => navigate('/admin/reports')} className="submit-button product-button" style={{...submitButtonStyle, backgroundColor: '#007bff'}}> 
                         VER RELATÓRIOS
@@ -234,9 +244,9 @@ const ProductTableCreatePage = () => {
                 </div>
 
 
-                {/* CARD 5: GERENCIAMENTO DE RESERVAS */}
+                {/* CARD 6: GERENCIAMENTO DE RESERVAS */}
                 <div className="admin-form-card reservation-card" style={{...cardStyle, flexBasis: '100%'}}>
-                    <h2 className="card-title" style={cardTitleStyle}>5. Gerenciar Reservas</h2>
+                    <h2 className="card-title" style={cardTitleStyle}>6. Gerenciar Reservas</h2>
                     <div className="table-list-container" style={{maxHeight: '300px', overflowY: 'auto', padding: '5px'}}>
                         {allTables.map(table => (
                             <div key={table.id} style={{
